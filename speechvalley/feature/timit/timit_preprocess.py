@@ -29,11 +29,22 @@ import scipy.io.wavfile as wav
 from sklearn import preprocessing
 from speechvalley.feature.core import calcfeat_delta_delta, spectrogramPower
 
-## original phonemes
-phn = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay', 'b', 'bcl', 'ch', 'd', 'dcl', 'dh', 'dx', 'eh', 'el', 'em', 'en', 'eng', 'epi', 'er', 'ey', 'f', 'g', 'gcl', 'h#', 'hh', 'hv', 'ih', 'ix', 'iy', 'jh', 'k', 'kcl', 'l', 'm', 'n', 'ng', 'nx', 'ow', 'oy', 'p', 'pau', 'pcl', 'q', 'r', 's', 'sh', 't', 'tcl', 'th', 'uh', 'uw', 'ux', 'v', 'w', 'y', 'z', 'zh']
+# original phonemes
+phn = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay', 'b',
+       'bcl', 'ch', 'd', 'dcl', 'dh', 'dx', 'eh', 'el', 'em', 'en',
+       'eng', 'epi', 'er', 'ey', 'f', 'g', 'gcl', 'h#', 'hh', 'hv',
+       'ih', 'ix', 'iy', 'jh', 'k', 'kcl', 'l', 'm', 'n', 'ng',
+       'nx', 'ow', 'oy', 'p', 'pau', 'pcl', 'q', 'r', 's', 'sh',
+       't', 'tcl', 'th', 'uh', 'uw', 'ux', 'v', 'w', 'y', 'z',
+       'zh']
 
-## cleaned phonemes
-#phn = ['sil', 'aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'ay', 'b', 'ch', 'd', 'dh', 'dx', 'eh', 'el', 'en', 'epi', 'er', 'ey', 'f', 'g', 'hh', 'ih', 'ix', 'iy', 'jh', 'k', 'l', 'm', 'n', 'ng', 'ow', 'oy', 'p', 'q', 'r', 's', 'sh', 't', 'th', 'uh', 'uw', 'v', 'w', 'y', 'z', 'zh']
+# cleaned phonemes
+# phn = ['sil', 'aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'ay', 'b',
+#         'ch', 'd', 'dh', 'dx', 'eh', 'el', 'en', 'epi', 'er', 'ey',
+#         'f', 'g', 'hh', 'ih', 'ix', 'iy', 'jh', 'k', 'l', 'm',
+#         'n', 'ng', 'ow', 'oy', 'p', 'q', 'r', 's', 'sh', 't',
+#         'th', 'uh', 'uw', 'v', 'w', 'y', 'z', 'zh']
+
 
 def wav2feature(rootdir, save_directory, mode, feature_len, level, keywords, win_len, win_step,  seq2seq, save):
     feat_dir = os.path.join(save_directory, level, keywords, mode)
