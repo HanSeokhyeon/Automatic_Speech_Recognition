@@ -26,6 +26,7 @@ mapping = {'ux':'uw','axr':'er','em':'m','nx':'en','n':'en',
               'pcl':'sil','tcl':'sil','vcl':'sil','l':'el','zh':'sh',
               'aa':'ao','ix':'ih','ax':'ah'}
 
+
 def group_phoneme(orig_phn,mapping):
     group_phn = []
     for val in orig_phn:
