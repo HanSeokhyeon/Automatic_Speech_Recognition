@@ -25,7 +25,8 @@ import sys
 import sklearn
 import numpy as np
 from sklearn import preprocessing
-from speechvalley.feature.core import calcfeat_delta_delta, spectrogramPower
+from feature.core.spectrogram import spectrogramPower
+from feature.core.calcmfcc import calcfeat_delta_delta
 
 
 # original phonemes

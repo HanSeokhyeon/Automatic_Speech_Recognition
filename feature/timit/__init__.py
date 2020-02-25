@@ -4,7 +4,7 @@
 # Last modified: 2017-12-09 11:00
 # Email        : zzw922cn@gmail.com
 # Filename     : __init__.py
-# Description  : Feature preprocessing for LibriSpeech dataset
+# Description  : Feature preprocessing for TIMIT dataset
 # ******************************************************
 
-from speechvalley.feature.libri.libri_preprocess import preprocess, wav2feature
+from feature.timit.timit_preprocess import wav2feature

@@ -4,6 +4,8 @@
 # Last modified: 2017-12-09 11:00
 # Email        : zzw922cn@gmail.com
 # Filename     : __init__.py
-# Description  : Libraries for training models for Automatic Speech Recognition
+# Description  : Feature preprocessing for some Madarian dataset
 # ******************************************************
 
+from feature import convertDigit2Character
+from feature import convertCharacter2Digit

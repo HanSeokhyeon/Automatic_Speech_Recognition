@@ -7,7 +7,7 @@
 # Description  : Feature preprocessing for WSJ dataset
 # ******************************************************
 
-from speechvalley.feature.wsj.extract_wsj import extract 
-from speechvalley.feature.wsj.rename_wsj import renameCD
-from speechvalley.feature.wsj.split_data_by_s5 import split_data_by_s5
-from speechvalley.feature.wsj.wsj_preprocess import wav2feature
+from feature.wsj.extract_wsj import extract
+from feature.wsj.rename_wsj import renameCD
+from feature.wsj.split_data_by_s5 import split_data_by_s5
+from feature.wsj.wsj_preprocess import wav2feature

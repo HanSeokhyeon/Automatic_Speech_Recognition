@@ -7,8 +7,8 @@
 # Description  : Feature preprocessing for some Madarian dataset
 # ******************************************************
 
-from speechvalley.feature.madarian import convertDigit2Character
-from speechvalley.feature.madarian import convertCharacter2Digit
+from feature import convertDigit2Character
+from feature import convertCharacter2Digit
 
 class DigitPrecessor(object):
 

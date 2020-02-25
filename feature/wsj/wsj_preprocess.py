@@ -17,7 +17,8 @@ import numpy as np
 import scipy.io.wavfile as wav
 from sklearn import preprocessing
 from subprocess import check_call, CalledProcessError
-from speechvalley.feature.core import calcfeat_delta_delta
+from feature.core.calcmfcc import calcfeat_delta_delta
+
 
 def wav2feature(root_directory, save_directory, name, win_len, win_step, mode, feature_len, seq2seq, save):
   """
