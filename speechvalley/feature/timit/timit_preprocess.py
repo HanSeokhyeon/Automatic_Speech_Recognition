@@ -18,7 +18,6 @@ mapped phonemes(For more details, you can read the main page of this repo):
 
 phn = ['sil', 'aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'ay', 'b', 'ch', 'd', 'dh', 'dx', 'eh', 'el', 'en', 'epi', 'er', 'ey', 'f', 'g', 'hh', 'ih', 'ix', 'iy', 'jh', 'k', 'l', 'm', 'n', 'ng', 'ow', 'oy', 'p', 'q', 'r', 's', 'sh', 't', 'th', 'uh', 'uw', 'v', 'w', 'y', 'z', 'zh']
 """
-
 import os
 import argparse
 import glob
@@ -27,6 +26,7 @@ import sklearn
 import numpy as np
 from sklearn import preprocessing
 from speechvalley.feature.core import calcfeat_delta_delta, spectrogramPower
+
 
 # original phonemes
 phn = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay', 'b',
