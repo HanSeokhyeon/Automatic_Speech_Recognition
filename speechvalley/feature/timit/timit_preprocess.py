@@ -25,7 +25,6 @@ import glob
 import sys
 import sklearn
 import numpy as np
-import scipy.io.wavfile as wav
 from sklearn import preprocessing
 from speechvalley.feature.core import calcfeat_delta_delta, spectrogramPower
 
