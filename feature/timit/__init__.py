@@ -7,4 +7,3 @@
 # Description  : Feature preprocessing for TIMIT dataset
 # ******************************************************
 
-from feature.timit.timit_preprocess import wav2feature

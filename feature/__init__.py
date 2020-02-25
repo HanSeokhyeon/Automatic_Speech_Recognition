@@ -8,5 +8,4 @@
 # ******************************************************
 
 from feature.libri.libri_preprocess import wav2feature as libri_wav2feature
-from feature.timit.timit_preprocess import wav2feature as timit_wav2feature
 from feature.wsj.wsj_preprocess import wav2feature as wsj_wav2feature
