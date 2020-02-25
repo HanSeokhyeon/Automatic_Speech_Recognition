@@ -24,7 +24,6 @@ def wav2feature(root_directory, save_directory, name, win_len, win_step, mode, f
   To run for WSJ corpus, you should download sph2pipe_v2.5 first!
   """
   
-
   count = 0
   dirid = 0
   level = 'cha' if seq2seq is False else 'seq2seq'

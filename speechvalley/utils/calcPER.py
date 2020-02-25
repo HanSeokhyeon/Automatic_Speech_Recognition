@@ -82,4 +82,3 @@ def sparse_tensor_to_seq_list(sparse_seq, merge_phn=True):
         it += seq_length
 
     return phonemes_list
-

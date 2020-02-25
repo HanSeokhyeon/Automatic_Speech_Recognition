@@ -52,4 +52,3 @@ if __name__ == '__main__':
   src_dir = '/media/pony/DLdigest/study/ASR/corpus/wsj/s5/data'
   des_dir = '/media/pony/DLdigest/study/ASR/corpus/wsj/standard'
   split_data_by_s5(src_dir, des_dir)
-
