@@ -46,7 +46,7 @@ phn = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay', 'b',
 #         'th', 'uh', 'uw', 'v', 'w', 'y', 'z', 'zh']
 
 
-def wav2feature(rootdir, save_directory, mode, feature_len, level, keywords, win_len, win_step,  seq2seq, save):
+def wav2feature(root_dir, save_directory, mode, feature_len, level, keywords, win_len, win_step,  seq2seq, save):
     feat_dir = os.path.join(save_directory, level, keywords, mode)
     label_dir = os.path.join(save_directory, level, keywords, 'label')
     if not os.path.exists(label_dir):
@@ -54,64 +54,64 @@ def wav2feature(rootdir, save_directory, mode, feature_len, level, keywords, win
     if not os.path.exists(feat_dir):
         os.makedirs(feat_dir)
     count = 0
-    for subdir, dirs, files in os.walk(rootdir):
+    for subdir, dirs, files in os.walk(root_dir):
         for file in files:
-            fullFilename = os.path.join(subdir, file)
-            filenameNoSuffix =  os.path.splitext(fullFilename)[0]
+            full_filename = os.path.join(subdir, file)
+            filename_no_suffix = os.path.splitext(full_filename)[0]
             if file.endswith('.WAV'):
-                rate, sig = 16000, np.fromfile(fullFilename, dtype=np.int16)[512:]
+                rate, sig = 16000, np.fromfile(full_filename, dtype=np.int16)[512:]
                 feat = calcfeat_delta_delta(sig, rate, win_length=win_len, win_step=win_step, mode=mode, feature_len=feature_len)
                 feat = preprocessing.scale(feat)
                 feat = np.transpose(feat)
                 print(feat.shape)
 
                 if level == 'phn':
-                    labelFilename = filenameNoSuffix + '.PHN'
-                    phenome = []
-                    with open(labelFilename,'r') as f:
+                    label_filename = filename_no_suffix + '.PHN'
+                    phoneme = []
+                    with open(label_filename,'r') as f:
                         if seq2seq is True:
-                            phenome.append(len(phn)) # <start token>
+                            phoneme.append(len(phn)) # <start token>
                         for line in f.read().splitlines():
                             s = line.split(' ')[2]
                             p_index = phn.index(s)
-                            phenome.append(p_index)
+                            phoneme.append(p_index)
                         if seq2seq is True:
-                            phenome.append(len(phn)+1) # <end token>
-                        print(phenome)
-                    phenome = np.array(phenome)
+                            phoneme.append(len(phn)+1) # <end token>
+                        print(phoneme)
+                    phoneme = np.array(phoneme)
 
                 elif level == 'cha':
-                    labelFilename = filenameNoSuffix + '.WRD'
-                    phenome = []
+                    label_filename = filename_no_suffix + '.WRD'
+                    phoneme = []
                     sentence = ''
-                    with open(labelFilename,'r') as f:
+                    with open(label_filename,'r') as f:
                         for line in f.read().splitlines():
-                            s=line.split(' ')[2]
+                            s = line.split(' ')[2]
                             sentence += s+' '
                             if seq2seq is True:
-                                phenome.append(28)
+                                phoneme.append(28)
                             for c in s:
-                                if c=="'":
-                                    phenome.append(27)
+                                if c == "'":
+                                    phoneme.append(27)
                                 else:
-                                    phenome.append(ord(c)-96)
-                            phenome.append(0)
+                                    phoneme.append(ord(c)-96)
+                            phoneme.append(0)
 
-                        phenome = phenome[:-1]
+                        phoneme = phoneme[:-1]
                         if seq2seq is True:
-                            phenome.append(29)
-                    print(phenome)
+                            phoneme.append(29)
+                    print(phoneme)
                     print(sentence)
 
-                count +=1
-                print('file index:',count)
+                count += 1
+                print('file index:', count)
                 if save:
-                    speaker, sentence_name = filenameNoSuffix.split('/')[-2:]
+                    speaker, sentence_name = filename_no_suffix.split('/')[-2:]
                     feature_filename = "{}/{}-{}.npy".format(feat_dir, speaker, sentence_name)
                     np.save(feature_filename,feat)
                     label_filename = "{}/{}-{}.npy".format(label_dir, speaker, sentence_name)
                     print(label_filename)
-                    np.save(label_filename,phenome)
+                    np.save(label_filename, phoneme)
 
 
 if __name__ == '__main__':
