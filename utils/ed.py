@@ -38,6 +38,7 @@ def group_phoneme(orig_phn,mapping):
     group_phn.sort()
     return group_phn
 
+
 def list_to_sparse_tensor(targetList,mode='train'):
     ''' turn 2-D List to SparseTensor
     '''
