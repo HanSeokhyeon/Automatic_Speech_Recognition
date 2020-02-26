@@ -50,8 +50,8 @@ flags.DEFINE_integer('num_iter', 3, 'set the number of iterations in routing')
 flags.DEFINE_float('lr', 0.0001, 'set the learning rate')
 flags.DEFINE_float('dropout_prob', 0.1, 'set probability of dropout')
 flags.DEFINE_float('grad_clip', 1, 'set the threshold of gradient clipping, -1 denotes no clipping')
-flags.DEFINE_string('datadir', '/path/to/your/data/directory', 'set the data root directory')
-flags.DEFINE_string('logdir', '/path/to/your/log/directory', 'set the log directory')
+flags.DEFINE_string('datadir', '/opt/project/dataset/_TIMIT', 'set the data root directory')
+flags.DEFINE_string('logdir', 'log', 'set the log directory')
 
 
 FLAGS = flags.FLAGS
@@ -98,10 +98,10 @@ if mode == 'test':
   batch_size = 100
   num_epochs = 1
 
-train_mfcc_dir = os.path.join(datadir, level, 'train', 'mfcc')
-train_label_dir = os.path.join(datadir, level, 'train', 'label')
-test_mfcc_dir = os.path.join(datadir, level, 'test', 'mfcc')
-test_label_dir = os.path.join(datadir, level, 'test', 'label')
+train_mfcc_dir = os.path.join(datadir, level, 'TRAIN', 'mfcc')
+train_label_dir = os.path.join(datadir, level, 'TRAIN', 'label')
+test_mfcc_dir = os.path.join(datadir, level, 'TEST', 'mfcc')
+test_label_dir = os.path.join(datadir, level, 'TEST', 'label')
 logfile = os.path.join(loggingdir, str(datetime.datetime.strftime(datetime.datetime.now(),
     '%Y-%m-%d %H:%M:%S') + '.txt').replace(' ', '').replace('/', ''))
 

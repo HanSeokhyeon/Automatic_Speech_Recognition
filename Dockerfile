@@ -17,3 +17,5 @@ RUN		pip install six==1.11.0 \
 				leven
 
 WORKDIR		/opt/project
+
+ENV PYTHONPATH /opt/project:PYTHONPATH
