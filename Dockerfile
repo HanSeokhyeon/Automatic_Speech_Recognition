@@ -16,6 +16,8 @@ RUN		pip install six==1.11.0 \
 				librosa==0.5.1 \
 				leven
 
+RUN     pip uninstall -y tensorflow
+
 WORKDIR		/opt/project
 
-ENV PYTHONPATH /opt/project:PYTHONPATH
+ENV PYTHONPATH /usr/local/lib/python3.5/dist-packages:PYTHONPATH

@@ -41,7 +41,7 @@ flags.DEFINE_string('activation', 'tanh', 'set the activation to use, sigmoid, t
 flags.DEFINE_string('optimizer', 'adam', 'set the optimizer to use, sgd, adam...')
 flags.DEFINE_boolean('layerNormalization', False, 'set whether to apply layer normalization to rnn cell')
 
-flags.DEFINE_integer('batch_size', 16, 'set the batch size')
+flags.DEFINE_integer('batch_size', 2, 'set the batch size')
 flags.DEFINE_integer('num_hidden', 128, 'set the hidden size of rnn cell')
 flags.DEFINE_integer('num_feature', 39, 'set the size of input feature')
 flags.DEFINE_integer('num_classes', 30, 'set the number of output classes')
