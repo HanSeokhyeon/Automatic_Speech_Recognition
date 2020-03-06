@@ -1,4 +1,4 @@
-FROM		tensorflow/tensorflow:1.15.2-gpu-py3
+FROM		tensorflow/tensorflow:1.15.2-py3
 MAINTAINER	sah0322@naver.com
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -10,7 +10,7 @@ RUN		pip install --upgrade pip
 RUN		pip install six==1.11.0 \
 				matplotlib==2.0.2 \
 				scikits.audiolab==0.11.0 \
-				scipy==0.19.1 \
+				scipy==1.1.0 \
 				scikit_learn==0.18.1 \
 				tabulate==0.7.7 \
 				theano==0.9.0 \
@@ -22,4 +22,4 @@ RUN		pip install six==1.11.0 \
 
 WORKDIR		/opt/project
 
-ENV PYTHONPATH /usr/local/lib/python3.5/dist-packages:PYTHONPATH
+ENV PYTHONPATH /usr/local/lib/python3.6/dist-packages:PYTHONPATH
